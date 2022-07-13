@@ -38,6 +38,6 @@ export class Splash {
       ctx.restore();
     }
     this.animCount++;
-    if (this.animCount === 20) this.isSplash = false;
+    if (this.animCount === 40) this.isSplash = false;
   }
 }
