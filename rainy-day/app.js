@@ -1,4 +1,5 @@
 import { Rain } from "./rain.js";
+import { Mouse } from "./mouse.js";
 
 class App {
   constructor() {
@@ -9,10 +10,16 @@ class App {
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
     this.rain = new Rain();
+    this.mouse = new Mouse(this.ctx);
 
     window.addEventListener("resize", this.resize.bind(this), false);
     this.resize();
 
+    window.addEventListener(
+      "mousemove",
+      this.mouse.move.bind(this.mouse),
+      false
+    );
     window.requestAnimationFrame(this.animate.bind(this));
   }
 
@@ -31,9 +38,11 @@ class App {
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
     requestAnimationFrame(this.animate.bind(this));
     this.rain.draw(this.ctx);
+    this.mouse.draw(this.ctx);
   }
 }
 
 window.onload = () => {
   new App();
+  document.getElementById("audio").volume = 0.5;
 };
