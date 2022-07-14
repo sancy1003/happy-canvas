@@ -21,9 +21,9 @@ export class Rain {
     }
   }
 
-  draw(ctx) {
+  draw(ctx, mouseX, mouseY) {
     for (let i = 0; i < this.rain.length; i++) {
-      this.rain[i].draw(ctx);
+      this.rain[i].draw(ctx, mouseX, mouseY);
     }
   }
 }

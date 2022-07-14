@@ -24,9 +24,21 @@ export class RainDrop {
     this.y = Math.floor(Math.random() * stageHeight) - this.height;
   }
 
-  draw(ctx) {
+  draw(ctx, mouseX, mouseY) {
     if (this.y >= this.stageHeight) {
       const splash = new Splash(this.x, this.stageHeight);
+      this.splashs.push(splash);
+
+      this.init();
+      return;
+    }
+    if (
+      this.y <= mouseY + 18 &&
+      this.y >= mouseY - 18 &&
+      this.x <= mouseX + 18 &&
+      this.x >= mouseX - 18
+    ) {
+      const splash = new Splash(this.x, this.y);
       this.splashs.push(splash);
 
       this.init();

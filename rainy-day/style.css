@@ -10,13 +10,15 @@
 html {
   width: 100%;
   height: 100%;
+  cursor: url("./cursor.cur"), auto;
 }
 
 body {
   width: 100%;
   height: 100%;
-  background-color: #13161a;
+  background-color: #1a3d5e;
   overflow: hidden;
+  cursor: url("./cursor.cur"), auto;
 }
 
 canvas {

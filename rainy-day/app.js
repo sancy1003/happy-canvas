@@ -37,8 +37,8 @@ class App {
   animate() {
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
     requestAnimationFrame(this.animate.bind(this));
-    this.rain.draw(this.ctx);
-    this.mouse.draw(this.ctx);
+
+    this.rain.draw(this.ctx, this.mouse.mouseX, this.mouse.mouseY);
   }
 }
 
