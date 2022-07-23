@@ -1,14 +1,15 @@
 export class Items {
-  constructor() {
+  constructor(roulette) {
+    this.roulette = roulette;
     this.colorList = [
-      "#FFAE9C",
-      "#9CB2FF",
-      "#B0F6AF",
-      "#D7AFF6",
-      "#76A094",
-      "#C29F76",
-      "#C0A7A7",
-      "#B7B7B7",
+      "#F69C96",
+      "#9EC0E4",
+      "#F6D14B",
+      "#AED267",
+      "#F5B259",
+      "#C3A1DC",
+      "#F2F2F2",
+      "#B2DEE5",
     ];
     this.list = [];
 
@@ -26,12 +27,14 @@ export class Items {
       this.list.push(input.value);
       input.value = "";
       this.createList();
+      this.roulette.draw(this.list, this.colorList);
     }
   }
 
   delete(index) {
     this.list.splice(index, 1);
     this.createList();
+    this.roulette.draw(this.list, this.colorList);
   }
 
   createList() {

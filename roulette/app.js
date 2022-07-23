@@ -1,18 +1,18 @@
 import { Items } from "./items.js";
+import { Roulette } from "./roulette.js";
 
 class App {
   constructor() {
     this.canvas = document.createElement("canvas");
+    this.canvas.width = 500;
+    this.canvas.height = 500;
     document.querySelector(".canvas-container").appendChild(this.canvas);
     this.ctx = this.canvas.getContext("2d");
 
-    this.items = new Items();
+    this.roulette = new Roulette(this.ctx);
+    this.items = new Items(this.roulette);
 
-    //window.requestAnimationFrame(this.animate.bind(this));
-  }
-
-  add() {
-    alert("dd");
+    window.requestAnimationFrame(this.animate.bind(this));
   }
 
   animate() {
