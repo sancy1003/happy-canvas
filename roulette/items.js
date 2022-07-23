@@ -15,6 +15,7 @@ export class Items {
 
     this.createList();
     this.createAddItems();
+    this.roulette.draw(this.list, this.colorList);
   }
 
   add() {
